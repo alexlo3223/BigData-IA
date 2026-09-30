@@ -123,3 +123,41 @@ print("Ejercicio 5")
 print("Acceso por edad:", acceso_por_edad)
 print("Acceso por socio:", acceso_por_socio)
 print("Puede acceder:", puede_acceder)
+
+# Ejercicio 11.
+#- Diferencias/Similitudes entre:
+# "i=i+1", "i++", "++i", "i+=1"
+
+# i = i + 1: suma 1 a i y reasigna el resultado.
+i = 0
+i = i + 1
+print("i=i+1:", i)
+
+# i++: no existe en Python, da SyntaxError.
+# i++
+# print("i++:", i)
+
+# ++i: es válido pero no hace nada (dos "+" unarios).
+++i
+print("++i:", i)
+
+# i += 1: equivale a i = i + 1, es la forma habitual de incrementar.
+i += 1
+print("i+=1:", i)
+
+# Ejercicio 12.
+#- "Zip" y "enumerate" en iterables
+
+frutas = ["manzana", "banana", "cereza"]
+
+# Recorre la lista elemento a elemento.
+for fruta in frutas:
+    print(fruta)
+
+# enumerate: da el índice junto con cada elemento.
+for index, fruta in enumerate(frutas):
+    print(index, fruta)
+
+# zip: recorre dos iterables a la vez, emparejando sus elementos.
+for fruta1, fruta2 in zip(frutas, frutas):
+    print(fruta1, fruta2)

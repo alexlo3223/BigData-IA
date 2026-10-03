@@ -25,7 +25,7 @@ for nota in notas:
 
 media = suma_notas / len(notas)
 
-print("Resultado ejercicio 1:\n")
+print("Ejercicio 1")
 print("Notas:", notas)
 print("Aprobadas:", aprobadas)
 print("Suspendidas:", suspendidas)
@@ -55,7 +55,8 @@ for producto, precio in zip(productos, precios):
 if total > 20:
     total *= 0.9
 
-print("Resultado ejercicio 2:\n")
+print("")
+print("Ejercicio 2")
 print("Total final: ",total," euros")
 
 #Ejercicio 3. Registro de alumno
@@ -81,7 +82,8 @@ alumno = {
     "faltas": 12
 }
 
-print("Resultado ejercicio 3:\n")
+print("")
+print("Ejercicio 3")
 
 for clave, valor in alumno.items():
     print(f"{clave}: {valor}")
@@ -121,7 +123,8 @@ for i in range(1, 51):
     if i % 5 == 0:
         multiplos_5 += 1
 
-print("Resultado ejercicio 4:\n")
+print("")
+print("Ejercicio 4")
 print("Números pares:", pares)
 print("Números impares:", impares)
 print("Múltiplos de 5:", multiplos_5)
@@ -137,6 +140,8 @@ print("Múltiplos de 5:", multiplos_5)
 #Condición: Debe utilizar strings, len, operadores lógicos y condicionales. Para comprobar si aparece @ dentro
 #del texto puede utilizarse "@" in password.
 
+print("")
+print("Ejercicio 5")
 password = "mi@contraseña"
 
 print("Resultado ejercicio 5:\n")
@@ -161,6 +166,8 @@ else:
 #- Mostrar cuántos productos tienen menos de 10 unidades.
 #Condición: Debe utilizar diccionarios, items(), acumuladores, contadores e if.
 
+print("")
+print("Ejercicio 6")
 inventario = {
     "ratón": 12,
     "teclado": 5,
@@ -188,7 +195,20 @@ for producto, unidades in inventario.items():
 #Condición: Debe utilizar listas, for, enumerate, if, break y una variable booleana de control.
 #Ejercicios de programación en Python · 3
 
+print("")
+print("Ejercicio 7")
+alumnos = ["Juan","Paco","Raul","Jose","Maria","Sofia"]
+nombre_buscar = "Paco"
+encontrado = False
 
+for posicion,alumno in enumerate(alumnos):
+    if alumno == nombre_buscar:
+        print("Nombre",nombre_buscar, "esta en la posicion",posicion)
+        encontrado = True
+        break
+
+if not encontrado:
+    print("Alumno no encontrado")
 
 #Ejercicio 8. Limpieza de datos
 #Crea una lista con varios números, incluyendo positivos, negativos y ceros.
@@ -200,7 +220,22 @@ for producto, unidades in inventario.items():
 #- Mostrar la suma final y la cantidad de ceros.
 #Condición: Debe utilizar listas, for, continue, un acumulador y un contador.
 
+numeros = [5, -3, 0, 12, -7, 0, 8, 0, -1, 4]
+suma_positivos = 0
+contador0 = 0
 
+for num in numeros:
+    if num < 0:
+        continue
+    if num > 0:
+        suma_positivos += num
+    if num == 0:
+        contador0 += 1
+
+print("")
+print("Ejercicio 8:")
+print("Suma de positivos:", suma_positivos)
+print("Cantidad de ceros:", contador0)
 
 #Ejercicio 9. Clasificación de usuarios
 #Crea una lista de diccionarios. Cada diccionario representa un usuario con los siguientes datos:
@@ -216,7 +251,28 @@ for producto, unidades in inventario.items():
 #- Mostrar el nombre de cada usuario y su clasificación.
 #Condición: Debe utilizar una lista de diccionarios, bucle for, booleanos, if, elif, else y operadores lógicos.
 
+usuarios = [
+    {"nombre": "Ana", "edad": 25, "activo": True, "puntos": 150, "clasificacion":""},
+    {"nombre": "Luis", "edad": 17, "activo": True, "puntos": 80, "clasificacion":""},
+    {"nombre": "Marta", "edad": 30, "activo": False, "puntos": 200, "clasificacion":""},
+    {"nombre": "Pablo", "edad": 16, "activo": True, "puntos": 120, "clasificacion":""},
+]
 
+print("")
+print("Ejercicio 9")
+
+for usuario in usuarios:
+    if usuario["activo"] and usuario["puntos"] >= 100:
+        usuario["clasificacion"] = "Premium"
+    elif usuario["activo"] and usuario["puntos"] < 100:
+        usuario["clasificacion"] = "Estandar"
+    else:
+        usuario["clasificacion"] = "Inactivo"
+    
+    if usuario["edad"] < 18:
+        usuario["clasificacion"] += "(Usuario es menor de edad)"
+
+    print(f"{usuario["nombre"]}: {usuario["clasificacion"]}")
 
 #Ejercicio 10. Sistema de intentos
 #Crea una variable codigo_correcto y una lista llamada intentos con varios códigos introducidos.
@@ -227,3 +283,24 @@ for producto, unidades in inventario.items():
 #- Si un intento coincide con el código correcto, mostrar Acceso concedido y terminar el bucle.
 #- Si después de todos los intentos no se encuentra el código correcto, mostrar Acceso denegado.
 # Condición: Debe utilizar listas, for, if, elif, else, break, pass, una variable booleana y un condicional final.
+print("")
+print("Ejercicio 10")
+
+codigo_correcto = "4321"
+intentos = ["1111", "", "0000", "4321", "9999"]
+acceso = False
+
+for intento in intentos:
+    print("Intento:",intento)
+    if intento == None:
+        pass
+    elif intento == codigo_correcto:
+        acceso = True
+        print("Acceso concedido")\
+        
+        break
+    else:
+        print("Código incorrecto")
+
+if not acceso:
+    print("Acceso denegado")

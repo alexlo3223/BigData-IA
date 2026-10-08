@@ -32,3 +32,24 @@ print(df.describe())
 #Ejercicio 5
 print()
 print("Ejercicio 5")
+
+def es_apto(fila):
+    if fila["edad"] >= 22:
+        return bool(fila["puntos"] >= 40)
+    return bool(fila["edad"] <= 22 and fila["puntos"] >= 35)
+
+df["apto"] = df.apply(es_apto, axis = 1)
+
+print(df)
+
+#Ejercicio 6
+print()
+print("Ejercicio 6")
+
+print(df["apto"].value_counts())
+
+#Ejercicio 7
+print()
+print("Ejercicio 7")
+candidatos_aptos = df[df["apto"]]
+print(candidatos_aptos)

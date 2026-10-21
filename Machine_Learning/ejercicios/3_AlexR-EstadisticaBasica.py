@@ -84,14 +84,18 @@ import pandas as pd
 import os
 
 #Metodo 1
+#Carga el archivo CSV en un DataFrame llamado df.
 ruta_csv = os.path.join(os.path.dirname(__file__), "datos_estadistica_alumnos.csv")
 df = pd.read_csv(ruta_csv)
 
+#Muestra las primeras filas.
 print(df.head())
 
+#Guarda la columna puntos_prueba en una variable llamada puntos.
 puntos = list(df["puntos_prueba"])
+#Muestra cuántos datos hay en la columna.
 contador = 0
-for valor in puntos:
+for i in puntos:
     contador += 1
 print(contador)
 
@@ -106,7 +110,19 @@ print(contador)
 #   - Comprueba que los tres resultados coinciden.
 #   - Explica qué significa esa media en el contexto de la prueba.
 #   Pandas que puedes usar: df["puntos_prueba"].mean().
-#
+
+#Metodo 1
+#Calcula la media de puntos_prueba con el Método 1: bucle for,
+#acumulador y len().
+contador = 0
+total_puntos = 0
+for i in puntos:
+    contador += 1
+    total_puntos += i
+if contador > 0:
+    media_puntos = total_puntos / contador
+print(media_puntos)
+
 # Ejercicio 3. Mediana
 #   - Calcula la mediana de puntos_prueba con el Método 1: ordenar la lista,
 #     comprobar si la cantidad de datos es par o impar y acceder por índice.
@@ -118,7 +134,21 @@ print(contador)
 #   - Comprueba que los tres resultados coinciden.
 #   - Explica por qué la mediana representa el centro de los datos.
 #   Pandas que puedes usar: df["puntos_prueba"].median().
-#
+
+#Metodo 1
+#Calcula la mediana de puntos_prueba con el Método 1: ordenar la lista,
+ordenados = puntos.copy()
+num_menor = puntos[1]
+for i in range(len(ordenados)):
+    for j in range(i+1, len(ordenados)):
+        if ordenados[j] < ordenados[i]:
+            ordenados[i], ordenados[j] = ordenados[j], ordenados[i]
+n = len(ordenados)
+mitad = n // 2
+#comprobar si la cantidad de datos es par o impar y acceder por índice.
+
+
+
 # Ejercicio 4. Moda
 #   - Calcula la moda de puntos_prueba con el Método 1: recorre la lista con
 #     un bucle y crea un diccionario de frecuencias.

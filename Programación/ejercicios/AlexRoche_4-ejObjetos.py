@@ -96,3 +96,45 @@ print()
 for motor in motores:
     print(poner_en_marcha(motor))
 
+#Ejercicio 6
+class CocheElectrico(Vehiculo):
+    def __init__(self, marca, modelo, autonomia_km):
+        super().__init__(marca, modelo)
+        self.autonomia_km = autonomia_km
+    def describir(self):
+        descripcion_base = super().describir()
+        return f"{descripcion_base}. Autonomía: {self.autonomia_km} km."
+
+ce = CocheElectrico("Prueba","Preuba",2)
+print()
+print("Ejercicio 6")
+print(ce.describir())
+
+#Ejercicio 7
+
+marca = "Seat"
+modelo = "Ibiza"
+anio = 2020
+
+print()
+print("Ejercicio 7")
+print(f"Coche: {marca}, {modelo}, {anio}")
+
+marca = "Prueba"
+modelo = "Prueba"
+anio = 2026
+
+print()
+print(f"Coche: {marca}, {modelo}, {anio}")
+
+#Ejercicio 8
+
+print()
+print("Ejercicio 8")
+try:
+    recorrido = int(input("Dime los km recorridos del coche:\n>"))
+    print("Kilómetros indicados:",recorrido)
+except ValueError:
+    print("Error: Debes ingresar un número entero.")
+    recorrido = 0
+print("Programa finalizado")
